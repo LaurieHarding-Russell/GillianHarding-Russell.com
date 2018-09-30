@@ -3,10 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AboutComponent } from './about/about';
+import { MenuComponent } from './menu/menu';
+import { GeneralComponent } from './general/general';
+import { BooksComponent } from './books/books';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutComponent,
+    BooksComponent,
+    GeneralComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

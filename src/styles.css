@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Roboto');
+
+:root {
+    --background:#fafaff;
+    --primary-colour:#ffffff;
+    --secondary-colour: #ffffff;
+    --scroll: 0px
+}
+
+body {
+    background: var(--background);
+    margin: 0;
+}
+
+menu {
+    margin: 0;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}ffff
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'EB Garamond', serif;
+}
+
+
+.text-center {
+    text-align: center
+}
