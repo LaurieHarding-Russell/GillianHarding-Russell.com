@@ -4,7 +4,14 @@
     --background:#fafaff;
     --primary-colour:#ffffff;
     --secondary-colour: #ffffff;
-    --scroll: 0px
+
+    --scroll: 0px;
+    --scroll-bar-colour: #dddddd66;
+
+    --font-colour-title:#111;
+    --font-colour:black;
+    --font-title:'EB Garamond', serif;
+    --font:'Roboto', sans-serif;
 }
 
 body {
@@ -17,14 +24,34 @@ menu {
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
-}ffff
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'EB Garamond', serif;
+    color: var(--font-colour);
+    font-family: var(--font);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: var(--font-colour-title);
+    font-family: var(--font-title);
+}
 
 .text-center {
     text-align: center
+}
+
+.title {
+    text-align: center;
+    color:var(--font);
+}
+
+.container {
+    min-width: 500px;
+    max-width: 750px;
+    width: 75%;
+    margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        margin: auto;
+    }
 }

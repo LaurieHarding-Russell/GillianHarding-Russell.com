@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about';
 import { MenuComponent } from './menu/menu';
 import { GeneralComponent } from './general/general';
-import { BooksComponent } from './books/books';
+import { BookListComponent } from './book-list/book-list';
+import { BookComponent } from './book-list/book/book';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    BooksComponent,
+    BookComponent,
+    BookListComponent,
     GeneralComponent,
     MenuComponent
   ],

@@ -15,6 +15,7 @@ import { Component } from '@angular/core';
       display: inline-block;
       position: fixed;
       z-index:10;
+      top:0;
     }
 
     .menu {
@@ -22,17 +23,18 @@ import { Component } from '@angular/core';
       align-items: center;
       justify-content: center;
       align-content: center;
-      background: #dddddd66;
+      background: var(--scroll-bar-colour);
       margin:0;
     }
 
     .menu:hover {
-      background: #dddddd;
+      background: #dddddddd;
     }
 
     a {
       margin: 0 15px;
-      color: #666;
+      color: #444444dd;
+      font-family: var(--font-title);
     }
 
     a:hover {

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Renderer2, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, Renderer2, ElementRef, NgZone } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -20,7 +20,13 @@ export class AppComponent implements OnInit, OnDestroy  {
   }
 
   scroll = (): void => {
-    console.log(window.scrollY);
     this.element.nativeElement.style.setProperty('--scroll', `${window.scrollY}px`);
+
+    // FIXME, I've got to think where to put this menu logic.
+    if (window.scrollY > 40) {
+      this.element.nativeElement.style.setProperty('--scroll-bar-colour', `#dddddd`);
+    } else {
+      this.element.nativeElement.style.setProperty('--scroll-bar-colour', `#dddddd66`);
+    }
   };
 }
