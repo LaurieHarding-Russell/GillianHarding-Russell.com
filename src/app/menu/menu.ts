@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   template: `
     <div class="menu">
       <a routerLink="/">General</a>
-      <a routerLink="/about">About</a>
       <a routerLink="/books">Books</a>
+      <a routerLink="/about">About</a>
     </div>
   `,
   styles:[`

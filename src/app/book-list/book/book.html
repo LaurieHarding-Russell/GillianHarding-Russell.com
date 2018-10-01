@@ -1,4 +1,7 @@
-<div>
-    <img [src]="image">
-    <ng-content></ng-content>
+<div class="book">
+    <img class="book-image" [src]="image">
+    <span class="content">
+        <ng-content></ng-content>
+    </span>
+    <div class="credit">{{credit}}</div>
 </div>
