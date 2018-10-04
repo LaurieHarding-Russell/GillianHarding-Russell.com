@@ -4,28 +4,41 @@ import { Component, Input } from '@angular/core';
   selector: 'book',
   templateUrl: './book.html',
   styles: [`
-    :host{
-      display: flex;
-    }
 
     .book {
-      background: #eee;
+      display: flex;
+      background: #ddd;
       margin: 25px 0 0 0;
-      padding: 5px;
-      border: 2px solid rgba(125,125,125, 0.1);
+      box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.26);
       width:100%;
     }
 
+    .info {
+      flex: 20%;
+      display:block;
+      background: #eee;
+      padding: 5px;
+    }
+
     .book-image {
-      float: left;
       width:100px;
+      display: block;
+      margin: 0 auto;
     }
     
     .content {
+      flex: 80%;
+      display:block;
       margin-left:5px;
+      padding: 5px;
+      overflow: auto;
     }
 
     .credit {
+      color: var(--primary);
+    }
+
+    .id {
       color: #999;
     }
   `]
@@ -33,4 +46,6 @@ import { Component, Input } from '@angular/core';
 export class BookComponent {
   @Input() image = "";
   @Input() credit = "";
+  @Input() id = "";
+  @Input() publish = "";
 }

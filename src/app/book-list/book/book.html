@@ -1,7 +1,11 @@
 <div class="book">
-    <img class="book-image" [src]="image">
+    <div class="info">
+        <img class="book-image" [src]="image">
+        <div class="credit">{{credit}}</div>
+        <div class="publish">{{publish}}</div>
+        <div class="id">{{id}}</div>
+    </div>
     <span class="content">
         <ng-content></ng-content>
     </span>
-    <div class="credit">{{credit}}</div>
 </div>
