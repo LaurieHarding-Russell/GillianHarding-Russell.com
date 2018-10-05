@@ -6,6 +6,12 @@
         <div class="id">{{id}}</div>
     </div>
     <span class="content">
-        <ng-content></ng-content>
+        <div *ngIf="!show">
+            {{description}}
+            <a class="book-content-toggle" (click)="show=true">Read more...</a>
+        </div>
+        <ng-content *ngIf="show">    
+        </ng-content>
+        <a class="book-content-toggle" *ngIf="show" (click)="show=false">... Hide</a>
     </span>
 </div>

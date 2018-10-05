@@ -4,6 +4,20 @@ import { Component, Input } from '@angular/core';
   selector: 'book',
   templateUrl: './book.html',
   styles: [`
+  @keyframes pulse {
+    0%   {
+      color: #666;
+      text-shadow: 2px 2px #00000000;
+    }
+    50% {
+      color: #777;
+      text-shadow: 2px 5px #00000011; /* FIXME, Too much? */
+    }
+    100% {
+      color: #666;
+      text-shadow: 2px 2px #00000000;
+    }
+  }
 
     .book {
       display: flex;
@@ -34,6 +48,18 @@ import { Component, Input } from '@angular/core';
       overflow: auto;
     }
 
+    .book-content-toggle {
+      display: block;
+      font-weight: 600;
+    }
+
+    .book-content-toggle:hover {
+      cursor: pointer;
+      animation-name: pulse;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+    }
+
     .credit {
       color: var(--primary);
     }
@@ -41,6 +67,8 @@ import { Component, Input } from '@angular/core';
     .id {
       color: #999;
     }
+
+    
   `]
 })
 export class BookComponent {
@@ -48,4 +76,6 @@ export class BookComponent {
   @Input() credit = "";
   @Input() id = "";
   @Input() publish = "";
+  @Input() description = "";
+  show = false;
 }
