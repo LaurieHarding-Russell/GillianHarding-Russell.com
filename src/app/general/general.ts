@@ -22,6 +22,29 @@ import { Component } from '@angular/core';
       height: 100vh;
     }
 
+    .heartwood-wrapper {
+      display:flex;
+      margin: 20px 0;
+    }
+
+    .heartwood {
+      display: flex;
+      width: 300px;
+      height: 175px;
+      background-image: url("/assets/heartwood-cover.png");
+      background-color: #cccccc;
+      background-size: contain;
+    }
+
+    div.heartwood-text {
+      display:flex;
+      padding-left: 10px;
+    }
+
+    .heartwood-text > * {
+      display: inline;
+    }
+
     @media screen and (width: 500px) {
       .page-header {
         overflow: hidden;

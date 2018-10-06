@@ -22,6 +22,7 @@ import { Component, Input } from '@angular/core';
     .book {
       display: flex;
       background: #ddd;
+      border-left: 10px solid var(--primary-colour);
       margin: 25px 0 0 0;
       box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.26);
       width:100%;
