@@ -3,7 +3,7 @@
         <img class="book-image" [src]="image">
         <div class="credit">{{credit}}</div>
         <div class="publish">{{publish}}</div>
-        <div class="id">{{id}}</div>
+        <div class="id" *ngIf="id">ISBN {{id}}</div>
     </div>
     <span class="content">
         <div *ngIf="!show">

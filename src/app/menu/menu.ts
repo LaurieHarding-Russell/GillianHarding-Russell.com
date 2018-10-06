@@ -41,6 +41,22 @@ import { Component } from '@angular/core';
       color: #000000;
     }
 
+    @media screen and (max-width: 480px) {
+  
+      :host {
+        width: 100%;
+        display: block;
+        position: absolute;
+      }
+      
+      .menu {
+        background: #dddddd;
+        width: 100%;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+
   `]
 })
 export class MenuComponent {

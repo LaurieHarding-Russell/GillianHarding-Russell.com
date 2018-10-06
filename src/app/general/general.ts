@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
     .page-header {
       display: inline-block;
       margin: 0;
+      min-width: 500px;
       width: 100%;
       height: 200px;
       background-image: url("/assets/bannerImage.png");
@@ -19,6 +20,12 @@ import { Component } from '@angular/core';
 
     .container {
       height: 100vh;
+    }
+
+    @media screen and (width: 500px) {
+      .page-header {
+        overflow: hidden;
+      }
     }
   `]
 })
