@@ -7,7 +7,7 @@
     </div>
     <span class="content">
         <div *ngIf="!show">
-            {{description}}
+            <span [innerHtml]="description"></span>
             <a class="book-content-toggle" (click)="show=true">Read more...</a>
         </div>
         <ng-content *ngIf="show">    

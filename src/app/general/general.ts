@@ -29,7 +29,7 @@ import { Component } from '@angular/core';
 
     .heartwood {
       display: flex;
-      width: 300px;
+      width: 155px;
       height: 175px;
       background-image: url("/assets/heartwood-cover.png");
       background-color: #cccccc;
@@ -37,7 +37,7 @@ import { Component } from '@angular/core';
     }
 
     div.heartwood-text {
-      display:flex;
+      white-space: pre-line;
       padding-left: 10px;
     }
 
