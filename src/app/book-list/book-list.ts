@@ -29,7 +29,7 @@ export class BookListComponent {
   anthologies = `
 1. <i>Resilience: a poetic response to sexual assault ed. Sue Goyette</i> (University of Regina Press, upcoming).
 
-2 <i>Heartwood: For the Love of Trees, ed. Lesley Strutt</i> (League of Canadian Poets, 2018). ISBN 978-1-896216-51-5
+2. <i>Heartwood: For the Love of Trees, ed. Lesley Strutt</i> (League of Canadian Poets, 2018). ISBN 978-1-896216-51-5
 
 3. <i>Line Dance, ed. Gerry Hill</i> (Burton House, 2016). ISBN 97809948666912
 
