@@ -5,7 +5,9 @@
         <div class="publish">{{publish}}</div>
         <div class="id" *ngIf="id">ISBN {{id}}</div>
     </div>
-    <span class="content">
+    <span class="content" 
+        [ngClass]="{
+            'detailed': show, 'description': show}">
         <div *ngIf="!show">
             <span [innerHtml]="description"></span>
             <a class="book-content-toggle" (click)="show=true">Read more...</a>
