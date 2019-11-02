@@ -1,0 +1,14 @@
+.book-title {
+    text-align: center;
+    margin: 25px 0 0 0 ;
+  }
+
+  .list {
+    white-space: pre-line;
+    counter-reset: item;
+  }
+
+  span::before {
+    counter-increment: item +1;
+    content: counter(item) ". ";
+  }
