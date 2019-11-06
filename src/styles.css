@@ -71,5 +71,10 @@ hr {
         margin: auto;
         min-width: 0;
     }
+
+    .title {
+        margin-top: 3em;
+
+    }
 }
   

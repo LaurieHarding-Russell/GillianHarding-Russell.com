@@ -34,6 +34,7 @@ import { Component } from '@angular/core';
       background-image: url("/assets/heartwood-cover.png");
       background-color: #cccccc;
       background-size: contain;
+      background-repeat: no-repeat;
     }
 
     div.heartwood-text {
@@ -48,6 +49,12 @@ import { Component } from '@angular/core';
     @media screen and (width: 500px) {
       .page-header {
         overflow: hidden;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .heartwood {
+        display:none;
       }
     }
   `]
