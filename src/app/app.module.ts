@@ -8,11 +8,13 @@ import { MenuComponent } from './menu/menu';
 import { GeneralComponent } from './general/general';
 import { BookListComponent } from './book-list/book-list';
 import { BookComponent } from './book-list/book/book';
+import { AwardsComponent } from './awards/awards';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
+    AwardsComponent,
     BookComponent,
     BookListComponent,
     GeneralComponent,

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
       <a routerLink="/">General</a>
       <a routerLink="/books">Books</a>
       <a routerLink="/about">About</a>
+      <a routerLink="/awards">Literary Awards</a>
     </div>
   `,
   styles:[`
