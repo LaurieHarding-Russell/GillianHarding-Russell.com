@@ -11,5 +11,6 @@ export class BookComponent {
   @Input() id = "";
   @Input() publish = "";
   @Input() description = "";
+  @Input() title = "";
   show = false;
 }
