@@ -29,12 +29,15 @@ import { Component } from '@angular/core';
 
     .heartwood {
       display: flex;
-      width: 155px;
-      height: 175px;
-      background-image: url("/assets/heartwood-cover.png");
+      width: auto;
+      max-width: 150px;
+      height: auto;
       background-color: #cccccc;
       background-size: contain;
-      background-repeat: no-repeat;
+    }
+
+    .heartwood img{
+      width: 100%;
     }
 
     div.heartwood-text {

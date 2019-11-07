@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class BookComponent {
   @Input() image = "";
+  @Input() imageFallback = "";
   @Input() credit = "";
   @Input() id = "";
   @Input() publish = "";
