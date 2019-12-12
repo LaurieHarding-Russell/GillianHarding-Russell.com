@@ -4,8 +4,20 @@ import { Component } from '@angular/core';
   selector: 'general',
   templateUrl: './general.html',
   styles: [`
-    .page-header {
+    :host {
+
+    }
+
+    header {
+      display: block;
+      height: 200px
+    }
+    .page-header::before{
+      content: "";
       display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
       margin: 0;
       min-width: 500px;
       width: 100%;

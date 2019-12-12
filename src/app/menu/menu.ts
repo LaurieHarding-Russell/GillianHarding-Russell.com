@@ -26,6 +26,7 @@ import { Component } from '@angular/core';
       align-content: center;
       background: var(--scroll-bar-colour);
       margin:0;
+      text-shadow: 1px 1px #ffffffb8;
     }
 
     .menu:hover {
