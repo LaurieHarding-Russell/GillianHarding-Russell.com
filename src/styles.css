@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond|Roboto');
 
 :root {
-    --background:#dac9ad;
+    --background:#f5ecde;
     --primary-colour:#6182ab;
     --secondary-colour: #ffffff;
 
     --scroll: 0px;
     --scroll-bar-colour: #dddddd66;
+    --header-colour: 240,240,240;
+    --time: 0;
 
     --font-colour-title:#111;
     --font-colour:black;
