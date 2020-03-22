@@ -30,30 +30,29 @@ header {
     height: 100vh;
 }
 
-.heartwood-wrapper {
+.anthology-wrapper {
     display:flex;
     margin: 20px 0;
 }
 
-.heartwood {
+.anthology {
     display: flex;
-    width: auto;
-    max-width: 150px;
-    height: auto;
+    height: 176px;
     background-color: #cccccc;
     background-size: contain;
 }
 
-.heartwood img{
+.anthology img{
     width: 100%;
+    width: 112px;
 }
 
-div.heartwood-text {
+div.anthology-text {
     white-space: pre-line;
     padding-left: 10px;
 }
 
-.heartwood-text > * {
+.anthology-text > * {
     display: inline;
 }
 
