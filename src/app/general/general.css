@@ -56,6 +56,10 @@ div.anthology-text {
     display: inline;
 }
 
+.strong-break {
+    margin:50px 0;
+}
+
 @media screen and (width: 500px) {
     .page-header {
     overflow: hidden;
