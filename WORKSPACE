@@ -1,13 +1,3 @@
-# WARNING: This file is generated and it's not meant to be edited.
-# Before making any changes, please read Bazel documentation.
-# https://docs.bazel.build/versions/master/be/workspace.html
-# The WORKSPACE file tells Bazel that this directory is a "workspace", which is like a project root.
-# The content of this file specifies all the external dependencies Bazel needs to perform a build.
-
-####################################
-# ESModule imports (and TypeScript imports) can be absolute starting with the workspace name.
-# The name of the workspace should match the npm package where we publish, so that these
-# imports also make sense when referencing the published package.
 workspace(
     name = "project",
     managed_directories = {"@npm": ["node_modules"]},
@@ -15,78 +5,133 @@ workspace(
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-RULES_NODEJS_VERSION = "1.2.2"
-RULES_NODEJS_SHA256 = "6bcef105e75cac3c5f8212e0d0431b6ec1aaa1963e093b0091474ab98ecf29d2"
+# Fetch rules_nodejs so we can install our npm dependencies
 http_archive(
     name = "build_bazel_rules_nodejs",
-    sha256 = RULES_NODEJS_SHA256,
-    url = "https://github.com/bazelbuild/rules_nodejs/releases/download/%s/rules_nodejs-%s.tar.gz" % (RULES_NODEJS_VERSION, RULES_NODEJS_VERSION),
+    sha256 = "84abf7ac4234a70924628baa9a73a5a5cbad944c4358cf9abdb4aab29c9a5b77",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/1.7.0/rules_nodejs-1.7.0.tar.gz"],
 )
 
-# Rules for compiling sass
-RULES_SASS_VERSION = "1.24.0"
-RULES_SASS_SHA256 = "77e241148f26d5dbb98f96fe0029d8f221c6cb75edbb83e781e08ac7f5322c5f"
+# Fetch sass rules for compiling sass files
 http_archive(
     name = "io_bazel_rules_sass",
-    sha256 = RULES_SASS_SHA256,
-    strip_prefix = "rules_sass-%s" % RULES_SASS_VERSION,
+    sha256 = "c78be58f5e0a29a04686b628cf54faaee0094322ae0ac99da5a8a8afca59a647",
+    strip_prefix = "rules_sass-1.25.0",
     urls = [
-        "https://github.com/bazelbuild/rules_sass/archive/%s.zip" % RULES_SASS_VERSION,
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_sass/archive/%s.zip" % RULES_SASS_VERSION,
+        "https://github.com/bazelbuild/rules_sass/archive/1.25.0.zip",
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_sass/archive/1.25.0.zip",
     ],
 )
 
-####################################
-# Load and install our dependencies downloaded above.
+# Check the bazel version and download npm dependencies
+load("@build_bazel_rules_nodejs//:index.bzl", "yarn_install")
 
-load("@build_bazel_rules_nodejs//:index.bzl", "check_bazel_version", "node_repositories",
-    "yarn_install")
-check_bazel_version(
-    message = """
-You no longer need to install Bazel on your machine.
-Your project should have a dependency on the @bazel/bazel package which supplies it.
-Try running `yarn bazel` instead.
-    (If you did run that, check that you've got a fresh `yarn install`)
-
-""",
-    minimum_bazel_version = "0.27.0",
-)
-
-# Setup the Node repositories. We need a NodeJS version that is more recent than v10.15.0
-# because "selenium-webdriver" which is required for "ng e2e" cannot be installed.
-# TODO: remove the custom repositories once "rules_nodejs" supports v12.14.1 by default.
-node_repositories(
-    node_repositories = {
-        "12.14.1-darwin_amd64": ("node-v12.14.1-darwin-x64.tar.gz", "node-v12.14.1-darwin-x64", "0be10a28737527a1e5e3784d3ad844d742fe8b0718acd701fd48f718fd3af78f"),
-        "12.14.1-linux_amd64": ("node-v12.14.1-linux-x64.tar.xz", "node-v12.14.1-linux-x64", "07cfcaa0aa9d0fcb6e99725408d9e0b07be03b844701588e3ab5dbc395b98e1b"),
-        "12.14.1-windows_amd64": ("node-v12.14.1-win-x64.zip", "node-v12.14.1-win-x64", "1f96ccce3ba045ecea3f458e189500adb90b8bc1a34de5d82fc10a5bf66ce7e3"),
-    },
-    node_version = "12.14.1",
-)
-
+# Setup the Node.js toolchain & install our npm dependencies into @npm
 yarn_install(
     name = "npm",
     package_json = "//:package.json",
     yarn_lock = "//:yarn.lock",
 )
 
+# Install all bazel dependencies of our npm packages
 load("@npm//:install_bazel_dependencies.bzl", "install_bazel_dependencies")
+
 install_bazel_dependencies()
 
+# Load npm_bazel_protractor dependencies
 load("@npm_bazel_protractor//:package.bzl", "npm_bazel_protractor_dependencies")
+
 npm_bazel_protractor_dependencies()
 
+# Load npm_bazel_karma dependencies
 load("@npm_bazel_karma//:package.bzl", "npm_bazel_karma_dependencies")
+
 npm_bazel_karma_dependencies()
 
+# Setup the rules_webtesting toolchain
 load("@io_bazel_rules_webtesting//web:repositories.bzl", "web_test_repositories")
+
 web_test_repositories()
 
 load("@io_bazel_rules_webtesting//web/versioned:browsers-0.3.2.bzl", "browser_repositories")
-browser_repositories(chromium = True, firefox = True)
 
+browser_repositories(
+    chromium = True,
+    firefox = True,
+)
+
+# Setup the rules_typescript tooolchain
 load("@npm_bazel_typescript//:index.bzl", "ts_setup_workspace")
+
 ts_setup_workspace()
 
+# Setup the rules_sass toolchain
 load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
+
 sass_repositories()
+
+################################
+# Support for Remote Execution #
+################################
+
+http_archive(
+    name = "bazel_toolchains",
+    sha256 = "239a1a673861eabf988e9804f45da3b94da28d1aff05c373b013193c315d9d9e",
+    strip_prefix = "bazel-toolchains-3.0.1",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-toolchains/releases/download/3.0.1/bazel-toolchains-3.0.1.tar.gz",
+        "https://github.com/bazelbuild/bazel-toolchains/releases/download/3.0.1/bazel-toolchains-3.0.1.tar.gz",
+    ],
+)
+
+####################################################
+# Support creating Docker images for our node apps #
+####################################################
+
+http_archive(
+    name = "io_bazel_rules_docker",
+    sha256 = "dc97fccceacd4c6be14e800b2a00693d5e8d07f69ee187babfd04a80a9f8e250",
+    strip_prefix = "rules_docker-0.14.1",
+    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.14.1/rules_docker-v0.14.1.tar.gz"],
+)
+
+load("@io_bazel_rules_docker//repositories:repositories.bzl", container_repositories = "repositories")
+
+container_repositories()
+
+load("@io_bazel_rules_docker//nodejs:image.bzl", nodejs_image_repos = "repositories")
+
+nodejs_image_repos()
+
+####################################################
+# Kubernetes setup, for deployment to Google Cloud #
+####################################################
+
+http_archive(
+    name = "io_bazel_rules_k8s",
+    sha256 = "cc75cf0d86312e1327d226e980efd3599704e01099b58b3c2fc4efe5e321fcd9",
+    strip_prefix = "rules_k8s-0.3.1",
+    urls = ["https://github.com/bazelbuild/rules_k8s/releases/download/v0.3.1/rules_k8s-v0.3.1.tar.gz"],
+)
+
+load("@io_bazel_rules_k8s//k8s:k8s.bzl", "k8s_defaults", "k8s_repositories")
+
+k8s_repositories()
+
+load("@io_bazel_rules_k8s//k8s:k8s_go_deps.bzl", k8s_go_deps = "deps")
+
+k8s_go_deps()
+
+k8s_defaults(
+    # This creates a rule called "k8s_deploy" that we can call later
+    name = "k8s_deploy",
+    # This is the name of the cluster as it appears in:
+    #   kubectl config view --minify -o=jsonpath='{.contexts[0].context.cluster}'
+    cluster = "_".join([
+        "gke",
+        "internal-200822",
+        "us-west1-a",
+        "angular-bazel-example",
+    ]),
+    kind = "deployment",
+)

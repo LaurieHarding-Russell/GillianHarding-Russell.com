@@ -33,19 +33,14 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular/bazel:build",
+          "builder": "@bazel/angular:build",
           "options": {
             "targetLabel": "//src:prodapp",
             "bazelCommand": "build"
-          },
-          "configurations": {
-            "production": {
-              "targetLabel": "//src:prodapp"
-            }
           }
         },
         "serve": {
-          "builder": "@angular/bazel:build",
+          "builder": "@bazel/angular:build",
           "options": {
             "targetLabel": "//src:devserver",
             "bazelCommand": "run",
@@ -64,7 +59,7 @@
           }
         },
         "test": {
-          "builder": "@angular/bazel:build",
+          "builder": "@bazel/angular:build",
           "options": {
             "bazelCommand": "test",
             "targetLabel": "//src:test"
@@ -77,33 +72,6 @@
               "src/tsconfig.app.json",
               "src/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "GillianHardingRussell-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular/bazel:build",
-          "options": {
-            "bazelCommand": "test",
-            "targetLabel": "//e2e:devserver_test"
-          },
-          "configurations": {
-            "production": {
-              "targetLabel": "//e2e:prodserver_test"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
