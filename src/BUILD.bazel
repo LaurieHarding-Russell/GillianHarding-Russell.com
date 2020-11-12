@@ -95,7 +95,7 @@ pkg_web(
         ":bundle.min",
         ":global_stylesheet",
         ":asset_injected_index_html",
-        "favicon.ico",
+        "favicon.png",
     ] + glob(["assets/*"]),
 )
 
@@ -128,7 +128,7 @@ ts_devserver(
         "@npm//:node_modules/zone.js/dist/zone.min.js",
         ":global_stylesheet",
         ":asset_injected_index_html",
-        "favicon.ico",
+        "favicon.png",
     ] +  glob(["assets/*"]),
     deps = [":src"],
 )
