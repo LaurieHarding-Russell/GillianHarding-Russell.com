@@ -9,6 +9,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 export class BookListComponent {
 
   chatbooks = `
+  <span><i>Megrim </i> (The Alfred Gustav Press, 2021). (coming out next spring) </span>
   <span><i>Fox Love</i> (The Alfred Gustav Press, 2016).</span>
   <span><i>Where the days and nights are equal length</i> (M. C International, 2014). ISBN 9780993676925</span>
   <span><i>Maya: Poems for the Summer Solstice</i> (Leaf Press, 2014).</span>
@@ -19,9 +20,9 @@ export class BookListComponent {
 
 
   anthologies = `
-<span><i>Sweet Water: Poems for the Watersheds, ed. Yvonne Blomer</i> (Caitlin Press, 2020 upcoming). </span>
+<span><i>Resistance,</i>  ed. by Sue Goyette (University of Regina Press, 2021 upcoming…).</span>
 
-<span><i>Resistance,</i>  ed. by Sue Goyette (Coteau Press, 2020 upcoming…).</span>
+<span><i>Sweet Water: Poems for the Watersheds, ed. Yvonne Blomer</i> (Caitlin Press, 2020). </span>
 
 <span><i>Heartwood: For the Love of Trees, ed. Lesley Strutt</i> (League of Canadian Poets, 2018). ISBN 978-1-896216-51-5</span>
 
