@@ -14,15 +14,14 @@ header {
     top: 0;
     left: 0;
     margin: 0;
-    min-width: 500px;
-    width: 100%;
+    width: 100vw;
     height: 200px;
     background-image: url("/assets/bannerImage.JPG");
     background-color: #cccccc;
     background-position: left calc(var(--scroll)/4);
     background-repeat: no-repeat;
     background-size: cover;
-    
+    overflow-x: hidden;
     box-shadow: inset 2px 2px 5px 1px rgba(0,0,0,0.56);
 }
 
@@ -67,7 +66,7 @@ div.anthology-text {
 }
 
 @media screen and (max-width: 500px) {
-    .heartwood {
-    display:none;
+    .page-header::before{ 
+        background-position: -112px calc(var(--scroll)/4 + 20px);
     }
 }
