@@ -77,14 +77,50 @@ html_insert_assets(
         "$(RULEDIR)",
         "--assets",
         "$(execpath :global_stylesheet.css)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/css/all.min.css)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf)",
+        "$(execpath @npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg)",
+
         "$(execpath @npm//:node_modules/zone.js/dist/zone.min.js)",
         "bundle.min.js",
+
     ],
     data = [
         ":index.html",
         ":global_stylesheet.css",
         "@npm//:node_modules/zone.js/dist/zone.min.js",
-    ],
+        "@npm//:node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg",
+
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg",
+
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg",
+    ]
 )
 
 pkg_web(
@@ -96,7 +132,25 @@ pkg_web(
         ":global_stylesheet",
         ":asset_injected_index_html",
         "favicon.png",
-    ] + glob(["assets/*"]),
+        "@npm//:node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg",
+
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg",
+
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg",
+    ] + glob(["assets/*"])
 )
 
 history_server(
@@ -129,6 +183,24 @@ ts_devserver(
         ":global_stylesheet",
         ":asset_injected_index_html",
         "favicon.png",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg",
+
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg",
+
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf",
+        "@npm//:node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg",
     ] +  glob(["assets/*"]),
     deps = [":src"],
 )
